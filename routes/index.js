@@ -87,7 +87,6 @@ router.get('/vewuser.hbs', function (req, res, next) {
 
 router.post('/vewuser.hbs', uploads.single('avatar'), function (req, res) {
     var connectUsers = db.model('users', user);
-    req.newData.id =
     connectUsers({
         hoTen: req.body.hoTen,
         ngaySinh: req.body.ngaySinh,
