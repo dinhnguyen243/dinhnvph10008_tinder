@@ -54,6 +54,22 @@
     .article-list .intro p {
         margin-bottom: 0;
     }
+    @media (min-width:1440px) {
+        .fomatImg img {
+            max-width: 400px;
+            max-height: 400px;
+        }
+        .fomatImg li {
+            font-size: 10px;
+        }
+        .fomatImg button {
+            max-width: 70px;
+            max-height: 70px;
+        }
+
+
+    }
+
 
     .article-list .articles {
         padding-bottom: 40px;
@@ -394,9 +410,9 @@
     </h1>
 
     {{#each users}}
-    <section  class="register-photo">
+    <section  class="register-photo col-sm-3">
 
-        <div class="form-container"><img src="{{this.avatar}}" style="width: 500px;height: 500px;margin-top: initial;margin-left: 50px">
+        <div class="form-container fomatImg "><img src="{{this.avatar}}" style="argin-top: initial;margin-left: 50px">
             <form method="post" action="/delete">
                 <h1 style="margin-top: -40px;text-align: center;color: #ee0979;">Thông tin</h1>
 
@@ -411,16 +427,18 @@
                 <h6 style="margin-left: 50px;font-family: monospace;width: 230px;margin-top: 20px;"><li>{{this.gioiThieu}}</li></h6>
             </form>
         </div>
+
     </section>
+    <div>
+        <form method="post" action="/delete" style="margin-top: -60px">
+            <input name="id" type="hidden" value="{{this._id}}"/>
+            <button class="btn btn-primary" type="submit" style="margin-left: 750px;margin-top: -650px; width: 60px; height: 40px">Xóa thông tin</button></form>
 
-    <form method="post" action="/delete" style="margin-top: -60px">
-        <input name="id" type="hidden" value="{{this._id}}"/>
-        <button class="btn btn-primary" type="submit" style="margin-left: 850px;margin-top: -400px">Xóa thông tin</button></form>
-
-    <form method="post" action="/update">
-        <input name="id" type="hidden" value="{{this._id}}"/>
-        <button  class="btn btn-primary" type="submit" style="margin-left: 850px; margin-top: -350px">Sửa thông tin</button></form>
-    <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
+        <form method="post" action="/update">
+            <input name="id" type="hidden" value="{{this._id}}"/>
+            <button  class="btn btn-primary " type="submit" style="margin-left: 850px; margin-top:  -700px;width: 60px; height: 40px">Sửa thông tin</button></form>
+        <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
+    </div>
     {{/each}}
 </body>
 

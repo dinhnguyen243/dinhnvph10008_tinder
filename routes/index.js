@@ -69,6 +69,7 @@ router.get("/singup.hbs", function (req, res) {
 router.get("/user.hbs", function (req, res) {
     res.render('user');
 });
+
 router.get('/vewuser.hbs', function (req, res, next) {
     // ket noi toi collection ten la users
     var connectUsers = db.model('users', user);
@@ -83,6 +84,18 @@ router.get('/vewuser.hbs', function (req, res, next) {
             }
         })
 });
+
+
+router.get('/getUsers', function (req,res){
+    const  userConect = db.model('users',user);
+    userConect.find({}, function (error,users){
+        if (error){
+
+        }else {
+            res.send(users);
+        }
+    })
+})
 
 
 router.post('/vewuser.hbs', uploads.single('avatar'), function (req, res) {
